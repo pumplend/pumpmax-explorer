@@ -24,7 +24,7 @@ export default function Navbar() {
   };
 
   const links = [
-    { name: 'Dashboard', href: '/', pathName: '/' },
+    { name: 'Explorer', href: '/', pathName: '/' },
     { name: 'About', href: '/about', pathName: '/about' },
   ]
 
@@ -39,7 +39,7 @@ export default function Navbar() {
               <div className="flex items-center px-2 lg:px-0">
                 <div className="flex-shrink-0 text-gray-700 dark:text-white font-bold font-mono">
                   <a href="/">
-                    Block Kube X
+                    Pumpmax Explorer
                   </a>
                 </div>
                 <div className="hidden lg:ml-6 lg:block">

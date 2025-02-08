@@ -8,9 +8,9 @@ export default function Example() {
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">About The Project</h1>
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">About Pumpmax Explorer</h1>
               <p className="mt-6 text-xl leading-8 text-gray-700 dark:text-gray-100">
-                <strong>Block Kube X</strong> is the culmination of a vision to democratize access to blockchain data, offering an easy-to-use, customizable, and open-source blockchain explorer for Ethereum. 
+                <strong>Pumpmax Explorer</strong> is a transaction explorer of <a> Pumpmax protocol</a> . You can search all the Transactions and positions here . Also able to see all the hisotry positions active history .
               </p>
             </div>
           </div>
