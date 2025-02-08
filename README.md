@@ -1,44 +1,13 @@
-# Block Kube X
+# Pumpmax Explorer
 
-`blockkube-explorer` is a lightweight, feature-rich blockchain explorer designed to provide real-time insights into the Ethereum blockchain. Built with Next.js and MongoDB, it leverages Web3.js for blockchain interactions, offering users a responsive and intuitive interface to query blocks, transactions, and wallet balances.
+This repo is a opensource position explorer of pumpmax protocol . Frok from [Block Kube X](https://github.com/marcus-gomes-v/BlockKube-X) .
 
-**Demo**: [Block Kube X on Vercel](https://blockkube-x.vercel.app/)
+All the data base on [Explorer-api](https://github.com/pumplend/explorer-api) . Fetch by [Monitor](https://github.com/pumplend/pumplend-liquidator/blob/master/monitor.js)
 
-## Features
+You can run your own front-end base on explorer interface . 
 
-- **Real-time Blockchain Data**: Explore the latest blocks and transactions on the Ethereum blockchain.
-- **Wallet, Transaction and Block Information**: View detailed wallet balances, transaction histories and block information.
-- **Responsive Design**: A user-friendly interface built with Tailwind CSS, optimized for both desktop and mobile devices.
-- **Dynamic Data Fetching**: Utilizes Web3.js to interact with Ethereum nodes, ensuring up-to-date blockchain information.
-- **Server-Side Rendering**: Leveraging Next.js for fast page loads and SEO-friendly content rendering.
+And . don't keep request it , i don't want to add auth system unless server unhandel . 
 
-## Prerequisites
-
-Before you begin, ensure you have installed the following on your system:
-
-- Node.js (v14 or newer)
-- npm (v6 or newer)
-- MongoDB
-
-## Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/marcus-gomes-v/BlockKube-X.git
-   cd BlockKube-X
-   ```
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-3. Set up environment variables:
-
-   - Copy the `.env.example` file to `.env`.
-   - Fill in the `ETH_NODE_URL` with your Ethereum node URL.
-   - Set your `MONGODB_URI` to point to your MongoDB instance.
-   - Optionally, set `INDEX_PAST_BLOCKS=true` if you wish to index all past blockchain blocks up to the current block. **Caution**: This process can be resource-intensive and time-consuming, depending on how far back the indexing goes.
 
 ## Running the Application
 
@@ -55,6 +24,16 @@ npm run build
 npm start
 ```
 
-## Contributing
+## Support Functions
 
-Contributions are welcome! Please submit a pull request or open an issue if you have any features, fixes, or improvements.
+- Txn search
+
+- Token search
+
+- Address search
+
+- Active position search
+
+- Active history search
+
+- Liqudtion history
