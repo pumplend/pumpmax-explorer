@@ -15,19 +15,35 @@ interface Block {
   blockTime: string;
 }
 
-const Actives: React.FC = () => {
+const Actives= ({search}: {search?: string}) => {
   const [blocks, setBlocks] = useState<Block[]>([]);
 
   const fetchBlocks = async () => {
-    // const response = await fetch(`/api/blocks`);
-    // if (!response.ok) {
-    //   console.error('Failed to fetch transactions data');
-    //   return;
-    // }
-    // let blockData = await response.json();
-    let blockData = await actives()
-    console.log(blockData)
-    setBlocks(blockData);
+    if(search)
+      {
+        const s = JSON.parse(search);
+        let user = undefined;
+        let token = undefined;
+        let hash = undefined;
+        if(s?.user)
+        {
+          user = s.user
+        }
+        if(s?.token)
+        {
+          token = s.token
+        }
+        if(s?.hash)
+        {
+          hash = s.hash
+        }
+  
+        let blockData = await actives(user,token,hash)
+        setBlocks(blockData);
+      }else{
+        let blockData = await actives()
+        setBlocks(blockData);
+      }
   };
 
   // Set up the interval

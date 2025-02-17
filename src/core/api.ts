@@ -108,6 +108,7 @@ async function api_pumpmax_get_user_positions(
   pageSize: number = 10,
   user?: string,
   token?: string,
+  hash?:string
 ) {
   try {
     let url = `${request_router.pumpmax.positions}?page=${page}&pageSize=${pageSize}`;
@@ -116,6 +117,10 @@ async function api_pumpmax_get_user_positions(
     }
     if (token) {
       url += `&token=${token}`;
+    }
+    if(hash)
+    {
+      url += `&hash=${hash}`;
     }
 
     return await requester(url, request_get_unauth());
@@ -131,6 +136,7 @@ async function api_pumpmax_get_user_actives(
   pageSize: number = 10,
   user?: string,
   token?: string,
+  hash?:string
 ) {
   try {
     let url = `${request_router.pumpmax.actives}?page=${page}&pageSize=${pageSize}`;
@@ -139,6 +145,10 @@ async function api_pumpmax_get_user_actives(
     }
     if (token) {
       url += `&token=${token}`;
+    }
+    if(hash)
+    {
+      url += `&hash=${hash}`;
     }
 
     return await requester(url, request_get_unauth());

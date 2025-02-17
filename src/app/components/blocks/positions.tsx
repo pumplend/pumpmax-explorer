@@ -20,12 +20,36 @@ interface Block {
   deadline: string | number;
 }
 
-const Positions: React.FC = () => {
+const Positions = ({search}: {search?: string}) => {
   const [data, setData] = useState<Block[]>([]);
 
   const fetchBlocks = async () => {
-    let blockData = await positions()
-    setData(blockData);
+    if(search)
+    {
+      const s = JSON.parse(search);
+      let user = undefined;
+      let token = undefined;
+      let hash = undefined;
+      if(s?.user)
+      {
+        user = s.user
+      }
+      if(s?.token)
+      {
+        token = s.token
+      }
+      if(s?.hash)
+      {
+        hash = s.hash
+      }
+
+      let blockData = await positions(user,token,hash)
+      setData(blockData);
+    }else{
+      let blockData = await positions()
+      setData(blockData);
+    }
+
   };
 
   // Set up the interval

@@ -24,6 +24,7 @@ export default function Home() {
       <Status />
       <Positons />
       <Actives />
+
       {/* <GoingLiqudtion /> */}
     </div>
   );

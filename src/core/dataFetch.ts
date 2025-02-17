@@ -9,9 +9,9 @@ const mainPage = async ()=>
         stakingData
     }
 }
-const positions = async ()=>
+const positions = async (user?:string,token?:string,hash?:string,page=1,pageSize=8)=>
 {
-    const ret = await api_pumpmax_get_user_positions(1,8)
+    const ret = await api_pumpmax_get_user_positions(page,pageSize,user,token,hash)
     if(ret?.code && ret?.data)
     {
         return ret.data
@@ -19,9 +19,9 @@ const positions = async ()=>
     return [];
 }
 
-const actives = async ()=>
+const actives = async (user?:string,token?:string,hash?:string,page=1,pageSize=8)=>
     {
-        const ret = await api_pumpmax_get_user_actives(1,8)
+        const ret = await api_pumpmax_get_user_actives(page,pageSize,user,token,hash)
         if(ret?.code && ret?.data)
         {
             return ret.data
