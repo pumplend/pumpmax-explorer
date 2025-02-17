@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { Kube } from './kube';
 import { PinContainer } from '../ui/3d-pin';
 
+import { CurrencyDollarIcon} from "@heroicons/react/20/solid";
+
 interface Block {
   hash: string;
   id: string;
@@ -164,11 +166,32 @@ const Positions: React.FC = () => {
                   href={`/position/${block.id}`}
                 >
                   <div className="tracking-tight text-slate-100/50 w-[18rem] h-[12rem]">
-                    <Kube
-                      title={`${block.id.slice(0,15)}...`}
-                      description={`Borrowed Amount: ${(Number(block.borrowedAmount)/1e9).toFixed(3)} SOL  Deadline: ${block.deadline} `}
-                      className='hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'
-                    />
+                      <div className={`w-full relative max-w-xs`}>
+                        <div className={`relative shadow-xl 
+                          bg-gray-300  border-gray-300
+                          dark:bg-gray-900 dark:border-gray-800
+                           border px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start
+                          ${'hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'}`}>
+                  
+                          <h1 className="flex font-bold text-xl text-gray-500 dark:text-white mb-4 relative z-50 middl gap-2">
+                            <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center mb-4 border-gray-500">
+                              <CurrencyDollarIcon className="h-4 w-4 text-gray-500" />
+                            </div> 
+                            <span>
+                             {`${block.id.slice(0,15)}...`}
+                            </span>
+                          </h1>
+                  
+                          <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
+                          Borrowed Amount:<span style={{fontWeight:"bold",fontStyle:"italic"}}>{`${(Number(block.borrowedAmount)/1e9).toFixed(3)} SOL `}</span> 
+                          </p>
+                          <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
+                          Deadline: <span style={{fontWeight:"bold",fontStyle:"italic"}}>{ `${new Date(Number(block.deadline)*1000).toLocaleString()}`}</span> 
+                          </p>
+                         
+                        </div>
+                      </div>
+
                   </div>
                 </PinContainer>
               </div>

@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Kube } from './kube';
 import { PinContainer } from '../ui/3d-pin';
-
+import { CurrencyDollarIcon,ClockIcon} from "@heroicons/react/20/solid";
 interface Block {
   parentHash: string;
   sha3Uncles: string;
@@ -74,60 +74,134 @@ const Status: React.FC = () => {
         </h1>
         <div className='grid grid-cols-4'>
 
-        <div key={"total_positions"} className={""}>
+        <div key={"active_positions"} className={""}>
                 <PinContainer
                   title={`Active Positions`}
                   // href={`/block/000`}
                 >
                   <div className="tracking-tight text-slate-100/50 w-[18rem] h-[12rem]">
-                    <Kube
-                      title={`${data.position.total}`}
-                      description={`Active Positions`}
-                      className='hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'
-                    />
-                  </div>
-                </PinContainer>
-        </div>
 
-        <div key={"total_positions"} className={""}>
-                <PinContainer
-                  title={`Active Hisotry`}
-                  // href={`/block/000`}
-                >
-                  <div className="tracking-tight text-slate-100/50 w-[18rem] h-[12rem]">
-                    <Kube
-                      title={`${data.history.total}`}
-                      description={`History Transactions`}
-                      className='hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'
-                    />
+                      <div className={`w-full relative max-w-xs`}>
+                        <div className={`relative shadow-xl 
+                          bg-gray-300  border-gray-300
+                          dark:bg-gray-900 dark:border-gray-800
+                           border px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start
+                          ${'hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'}`}>
+                  
+                          <h1 className="flex font-bold text-xl text-gray-500 dark:text-white mb-4 relative z-50 middl gap-2">
+                            <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center mb-4 border-gray-500">
+                              <CurrencyDollarIcon className="h-4 w-4 text-gray-500" />
+                            </div> 
+                            <span>
+                             {data.position.total}
+                            </span>
+                          </h1>
+                  
+                          <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
+                          <span className='text-2xl' style={{fontWeight:"bold"}}>{"Active Positions"}</span> 
+                          </p>
+                         
+                        </div>
+                      </div>
                   </div>
                 </PinContainer>
         </div>
-        <div key={"total_positions"} className={""}>
+        <div key={"closed_positions"} className={""}>
                 <PinContainer
                   title={`Liqudting Positions`}
                   // href={`/block/000`}
                 >
                   <div className="tracking-tight text-slate-100/50 w-[18rem] h-[12rem]">
-                    <Kube
-                      title={`${data.goingLiqudtion.total}`}
-                      description={`Total Liqudited Position`}
-                      className='hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'
-                    />
+                      <div className={`w-full relative max-w-xs`}>
+                        <div className={`relative shadow-xl 
+                          bg-gray-300  border-gray-300
+                          dark:bg-gray-900 dark:border-gray-800
+                           border px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start
+                          ${'hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'}`}>
+                  
+                          <h1 className="flex font-bold text-xl text-gray-500 dark:text-white mb-4 relative z-50 middl gap-2">
+                            <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center mb-4 border-gray-500">
+                              <CurrencyDollarIcon className="h-4 w-4 text-gray-500" />
+                            </div> 
+                            <span>
+                            {data.goingLiqudtion.total}
+                            </span>
+                          </h1>
+                  
+                          <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
+                          <span className='text-2xl' style={{fontWeight:"bold"}}>{"Closed Position"}</span> 
+                          </p>
+                        </div>
+                      </div>
                   </div>
                 </PinContainer>
         </div>
-        <div key={"total_positions"} className={""}>
+        <div key={"active_history"} className={""}>
+                <PinContainer
+                  title={`Active Hisotry`}
+                  // href={`/block/000`}
+                >
+                  <div className="tracking-tight text-slate-100/50 w-[18rem] h-[12rem]">
+                      <div className={`w-full relative max-w-xs`}>
+                        <div className={`relative shadow-xl 
+                          bg-gray-300  border-gray-300
+                          dark:bg-gray-900 dark:border-gray-800
+                           border px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start
+                          ${'hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'}`}>
+                  
+                          <h1 className="flex font-bold text-xl text-gray-500 dark:text-white mb-4 relative z-50 middl gap-2">
+                            <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center mb-4 border-gray-500">
+                              <CurrencyDollarIcon className="h-4 w-4 text-gray-500" />
+                            </div> 
+                            <span>
+                            {data.history.total}
+                            </span>
+                          </h1>
+                  
+                          <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
+                          <span className='text-2xl' style={{fontWeight:"bold"}}>{"History Transactions"}</span> 
+                          </p>
+                         
+                        </div>
+                      </div>
+                  </div>
+                </PinContainer>
+        </div>
+
+        <div key={"total_stake"} className={""}>
                 <PinContainer
                   title={`Staking Status`}
                   // href={`/block/000`}
                 >
                   <div className="tracking-tight text-slate-100/50 w-[18rem] h-[12rem]">
-                    <Kube
+                    {/* <Kube
                       title={`${data.stake.total} SOL`}
                       description={`Total Stake || Stake Apy :${data.stake.total/100}%`}
                       className='hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'
-                    />
+                    /> */}
+
+                      <div className={`w-full relative max-w-xs`}>
+                        <div className={`relative shadow-xl 
+                          bg-gray-300  border-gray-300
+                          dark:bg-gray-900 dark:border-gray-800
+                           border px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start
+                          ${'hover:cursor-pointer hover:shadow-md hover:shadow-sky-500 hover:dark:shadow-sky-300 transition-shadow duration-300 ease-in-out'}`}>
+                  
+                          <h1 className="flex font-bold text-xl text-gray-500 dark:text-white mb-4 relative z-50 middl gap-2">
+                            <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center mb-4 border-gray-500">
+                              <CurrencyDollarIcon className="h-4 w-4 text-gray-500" />
+                            </div> 
+                            <span>
+                            {data.history.total} SOL
+                            </span>
+                          </h1>
+                  
+                          <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
+                          STAKE APY : <span className='text-2xl' style={{fontWeight:"bold"}}>{`${data.stake.total/100}%`}</span> 
+                          </p>
+                         
+                        </div>
+                      </div>
                   </div>
                 </PinContainer>
         </div>
