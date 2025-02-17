@@ -5,50 +5,67 @@ import React, { useEffect, useState } from 'react';
 import { Kube } from './kube';
 import { PinContainer } from '../ui/3d-pin';
 import { CurrencyDollarIcon,ClockIcon} from "@heroicons/react/20/solid";
-interface Block {
-  parentHash: string;
-  sha3Uncles: string;
-  miner: string;
-  stateRoot: string;
-  transactionsRoot: string;
-  receiptsRoot: string;
-  logsBloom?: string;
-  number: bigint;
-  timestamp: string | number;
-  transactions: string[]; // Array to store transaction hashes
-}
+import {mainPage} from "@/core/dataFetch" ; 
 
 const Status: React.FC = () => {
   const [data, setData] = useState({
     position:{
-      total:123,
-      close:123,
+      total:0,
+      close:0,
     },
     history:{
-      total:123,
-      open:123,
-      close:123,
+      total:0,
+      open:0,
+      close:0,
     },
     goingLiqudtion:{
-      total:123,
+      total:0,
     },
     stake:
     {
-      total:123,
-      apy:123,
+      total:0,
+      apy:0,
     }
   });
 
+  
   const fetchBlocks = async () => {
-    // const response = await fetch(`/api/blocks`);
-    // if (!response.ok) {
-    //   console.error('Failed to fetch transactions data');
-    //   return;
-    // }
-    // let blockData = await response.json();
-    // let blockData = []
-    // console.log(blockData)
-    // setBlocks(blockData);
+    const init = await mainPage()
+    if(!init.stakingData)
+    {
+      return false;
+    }
+    setData(
+      {
+        position:{
+          total:init.mainData.main.activePositionCounts,
+          close:init.mainData.main.closedPositionCount,
+        },
+        history:{
+          total:init.mainData.main.activeCount,
+          open:0,
+          close:0,
+        },
+        goingLiqudtion:{
+          total:0,
+        },
+        stake:
+        {
+          total:Number((Number(init.stakingData.totalStaked)/1e9).toFixed(3)),
+          apy:Number(
+            (
+              (
+                (Number(init.stakingData.totalStaked) /
+                Number(init.stakingData.totalShares) -
+                1) /
+                ((Date.now() / 1000 - 1738845585) / (365 * 24 * 3600))
+              ) *
+              100
+            ).toFixed(3)
+          ),
+        }
+      }
+    )
   };
 
   // Set up the interval
@@ -192,12 +209,12 @@ const Status: React.FC = () => {
                               <CurrencyDollarIcon className="h-4 w-4 text-gray-500" />
                             </div> 
                             <span>
-                            {data.history.total} SOL
+                            {data.stake.total} SOL
                             </span>
                           </h1>
                   
                           <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-                          STAKE APY : <span className='text-2xl' style={{fontWeight:"bold"}}>{`${data.stake.total/100}%`}</span> 
+                          STAKE APY : <span className='text-2xl' style={{fontWeight:"bold"}}>{`${data.stake.apy}%`}</span> 
                           </p>
                          
                         </div>

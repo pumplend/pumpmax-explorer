@@ -5,7 +5,7 @@ const mainPage = async ()=>
     const mainData = await api_pumpmax_get_main();
     const stakingData = await getStakingData();
     return {
-        mainData,
+        mainData:mainData.data,
         stakingData
     }
 }
