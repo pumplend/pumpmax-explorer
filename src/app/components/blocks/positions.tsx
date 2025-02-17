@@ -6,7 +6,7 @@ import { Kube } from './kube';
 import { PinContainer } from '../ui/3d-pin';
 
 import { CurrencyDollarIcon} from "@heroicons/react/20/solid";
-
+import {positions} from "@/core/dataFetch" ; 
 interface Block {
   hash: string;
   id: string;
@@ -24,108 +24,7 @@ const Positions: React.FC = () => {
   const [data, setData] = useState<Block[]>([]);
 
   const fetchBlocks = async () => {
-    // const response = await fetch(`/api/blocks`);
-    // if (!response.ok) {
-    //   console.error('Failed to fetch transactions data');
-    //   return;
-    // }
-    // let blockData = await response.json();
-    let blockData = [{
-      "hash": "4T5eLzZx4mpfosDfXfewv6jsNUdiQfW2GMK9QSBFuTGNkeDjSfdjkWnn6Z2XNKezsyrBmyVqdPG1i2uxunHo3pEE",
-      "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-      "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-      "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-      "collateralAmount": "15793974056718",
-      "depositSolAmount": "200000000",
-      "borrowedAmount": "294364966",
-      "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-      "blockTime": 1738944442,
-      "deadline": 1740828195
-      },
-      {
-        "hash": "4T5eLzZx4mpfosDfXfewv6jsNUdiQfW2GMK9QSBFuTGNkeDjSfdjkWnn6Z2XNKezsyrBmyVqdPG1i2uxunHo3pEE",
-        "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-        "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-        "collateralAmount": "15793974056718",
-        "depositSolAmount": "200000000",
-        "borrowedAmount": "294364966",
-        "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "blockTime": 1738944442,
-        "deadline": 1740828195
-        },
-        {
-          "hash": "4T5eLzZx4mpfosDfXfewv6jsNUdiQfW2GMK9QSBFuTGNkeDjSfdjkWnn6Z2XNKezsyrBmyVqdPG1i2uxunHo3pEE",
-          "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-          "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-          "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-          "collateralAmount": "15793974056718",
-          "depositSolAmount": "200000000",
-          "borrowedAmount": "294364966",
-          "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-          "blockTime": 1738944442,
-          "deadline": 1740828195
-          },
-          {
-            "hash": "4T5eLzZx4mpfosDfXfewv6jsNUdiQfW2GMK9QSBFuTGNkeDjSfdjkWnn6Z2XNKezsyrBmyVqdPG1i2uxunHo3pEE",
-            "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-            "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-            "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-            "collateralAmount": "15793974056718",
-            "depositSolAmount": "200000000",
-            "borrowedAmount": "294364966",
-            "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-            "blockTime": 1738944442,
-            "deadline": 1740828195
-            },
-            {
-              "hash": "4T5eLzZx4mpfosDfXfewv6jsNUdiQfW2GMK9QSBFuTGNkeDjSfdjkWnn6Z2XNKezsyrBmyVqdPG1i2uxunHo3pEE",
-              "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-              "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-              "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-              "collateralAmount": "15793974056718",
-              "depositSolAmount": "200000000",
-              "borrowedAmount": "294364966",
-              "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-              "blockTime": 1738944442,
-              "deadline": 1740828195
-              },
-              {
-                "hash": "4T5eLzZx4mpfosDfXfewv6jsNUdiQfW2GMK9QSBFuTGNkeDjSfdjkWnn6Z2XNKezsyrBmyVqdPG1i2uxunHo3pEE",
-                "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-                "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-                "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-                "collateralAmount": "15793974056718",
-                "depositSolAmount": "200000000",
-                "borrowedAmount": "294364966",
-                "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-                "blockTime": 1738944442,
-                "deadline": 1740828195
-                },
-                {
-                  "hash": "4T5eLzZx4mpfosDfXfewv6jsNUdiQfW2GMK9QSBFuTGNkeDjSfdjkWnn6Z2XNKezsyrBmyVqdPG1i2uxunHo3pEE",
-                  "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-                  "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-                  "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-                  "collateralAmount": "15793974056718",
-                  "depositSolAmount": "200000000",
-                  "borrowedAmount": "294364966",
-                  "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-                  "blockTime": 1738944442,
-                  "deadline": 1740828195
-                  },
-                  {
-                    "hash": "4T5eLzZx4mpfosDfXfewv6jsNUdiQfW2GMK9QSBFuTGNkeDjSfdjkWnn6Z2XNKezsyrBmyVqdPG1i2uxunHo3pEE",
-                    "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-                    "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-                    "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-                    "collateralAmount": "15793974056718",
-                    "depositSolAmount": "200000000",
-                    "borrowedAmount": "294364966",
-                    "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-                    "blockTime": 1738944442,
-                    "deadline": 1740828195
-                    }]
+    let blockData = await positions()
     setData(blockData);
   };
 
@@ -157,7 +56,7 @@ const Positions: React.FC = () => {
             const isLastBlock = index === data.length - 1;
             const fadeInClass = 'animate-fade-in'; // Make sure this class is defined in your CSS
             const fadeOutClass = 'animate-fade-out'; // Ensure this class is defined to handle fade out
-            const animationClass = isFirstBlock ? fadeInClass : isLastBlock ? fadeOutClass : '';
+            const animationClass =fadeInClass// isFirstBlock ? fadeInClass : isLastBlock ? fadeOutClass : '';
 
             return (
               <div key={index} className={`${animationClass}`}>

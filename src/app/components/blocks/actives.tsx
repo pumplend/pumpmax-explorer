@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Kube } from './kube';
 import { PinContainer } from '../ui/3d-pin';
 import { ClockIcon} from "@heroicons/react/20/solid";
+import {actives} from "@/core/dataFetch" ; 
 interface Block {
   hash: string;
   id: string;
@@ -24,83 +25,7 @@ const Actives: React.FC = () => {
     //   return;
     // }
     // let blockData = await response.json();
-    let blockData = [
-      {
-        "hash": "2DgieKZMVb3SoteEuiaDbM6uwcwJnXZ8Vo2Cjs5DMCYiz8uS63tsqXmQGxjwHtEqxYNqGERSYbTXddDduP79JohS",
-        "id": "CRpHGVNCrKa6YwnX7Pn84M6S9YQRQkkEHuxB6pkXBW3B",
-        "type": "borrowLoopPump",
-        "user": "FqJ1vRkdaipZ9WYTf3UAaDSsFHCjvBodQUodyMCdhdRX",
-        "token": "CbineB365vkiy3rNgvxuBm6cXxA4iu6uAAsHwX5rpump",
-        "amount": "30000000",
-        "blockTime": 1739006856
-        },
-        {
-        "hash": "4T5eLzZx4mpfosDfXfewv6jsNUdiQfW2GMK9QSBFuTGNkeDjSfdjkWnn6Z2XNKezsyrBmyVqdPG1i2uxunHo3pEE",
-        "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-        "type": "borrowLoopPump",
-        "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-        "amount": "200000000",
-        "blockTime": 1738944442
-        },
-        {
-        "hash": "n8bokMwRhmPx5HHQUeWjpXPe1gZakXbcLbX62p5ja9gbYPC2jL9E6MmxnEhTcND5fLjk5tibAevzGJJcrKnoqKm",
-        "id": "2g8XG2pQSn6q9LLDEckBqbnyxZC1rCsxkD1tX62VcbCK",
-        "type": "liquidateRaydium",
-        "liquidator": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "token": "GJAFwWjJ3vnTsrQVabjBVK2TYB1YtRCQXRDfDgUnpump",
-        "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "blockTime": 1738944410
-        },
-        {
-        "hash": "67gQXaxaNjS8YHUvxboDgLD4kM1XJgHSdH4akP6qJ78yNGgsRan4Mz2EDxc5iMVoN3mKzRmUpWTaW9iiWFRZsrBK",
-        "id": "PDMMQiE5PVdu37icVXurDBUsXKGM5NsP3GLmkNEdMSJ",
-        "type": "liquidatePump",
-        "liquidator": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "token": "Eq1Wrk62j2F2tLf9XfdBssYJVr5k8oLJx3pqEL1rpump",
-        "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "blockTime": 1738944367
-        },
-        {
-        "hash": "352SZxMuU7Ys9Gwxcv2zuzARJqJafHxZz5jtcuuqntpZuirWrfs5yvJbyR4DfyZsxd7rYrkUXZo96QtFeMCTwCJr",
-        "id": "FsFndvrY4bTU35JyCYERXMEpE2MX27NVvnWVbLjBdGqv",
-        "type": "liquidatePump",
-        "liquidator": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "token": "CbineB365vkiy3rNgvxuBm6cXxA4iu6uAAsHwX5rpump",
-        "referrer": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "blockTime": 1738943436
-        },
-        {
-        "hash": "352hf2M7QNXUEvjMCFseZQzbQR27aeA5cFRGeJgHSu4eMKdZznZ1zigJLYX4QfNJyqyC18SZayzq5E57Q5YKN7q9",
-        "id": "FsFndvrY4bTU35JyCYERXMEpE2MX27NVvnWVbLjBdGqv",
-        "type": "borrowLoopPump",
-        "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "token": "CbineB365vkiy3rNgvxuBm6cXxA4iu6uAAsHwX5rpump",
-        "amount": "200000000",
-        "blockTime": 1738925930
-        },
-        {
-        "hash": "2hM1EBhUZSPfrp9Dq1gm4wtiXZm5N1PyN8JnKJRVzYZP7r9JU3Xou6aEAi8EUmZPiohaR5J1QEqooxYWeyYe7xKX",
-        "id": "FsFndvrY4bTU35JyCYERXMEpE2MX27NVvnWVbLjBdGqv",
-        "type": "borrowLoopPump",
-        "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "token": "CbineB365vkiy3rNgvxuBm6cXxA4iu6uAAsHwX5rpump",
-        "amount": "100000000",
-        "blockTime": 1738925769
-        },
-        {
-        "hash": "2C6Eab7BSE2SPWMJTZsdgpxw9xAmgSFtdnAEc29DsKYirZ4T82cbhMvx4mU1GTWs6PG3aLC7VJKiqMnHEAZLaVu",
-        "id": "2g8XG2pQSn6q9LLDEckBqbnyxZC1rCsxkD1tX62VcbCK",
-        "type": "borrowLoopRaydium",
-        "user": "Ge3vpViqwz4fvx2EAZPsAfvUiwh7PajvTsZtKW33nMmE",
-        "token": "GJAFwWjJ3vnTsrQVabjBVK2TYB1YtRCQXRDfDgUnpump",
-        "amount": "100000000",
-        "blockTime": 1738922080
-        }
-    ]
+    let blockData = await actives()
     console.log(blockData)
     setBlocks(blockData);
   };
@@ -133,7 +58,7 @@ const Actives: React.FC = () => {
             const isLastBlock = index === blocks.length - 1;
             const fadeInClass = 'animate-fade-in'; // Make sure this class is defined in your CSS
             const fadeOutClass = 'animate-fade-out'; // Ensure this class is defined to handle fade out
-            const animationClass = isFirstBlock ? fadeInClass : isLastBlock ? fadeOutClass : '';
+            const animationClass = fadeInClass//isFirstBlock ? fadeInClass : isLastBlock ? fadeOutClass : '';
             let type = "";
             if (block.type == "stake")
             {
