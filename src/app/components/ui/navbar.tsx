@@ -12,15 +12,16 @@ export default function Navbar() {
   const router = useRouter();
 
   const handleSearch = async () => {
-     if (/^\d+$/.test(input)) { // Block Number
-      router.push(`/block/${input}`); // Navigate to block detail page by number
-    } else if (/^0x[a-fA-F0-9]{64}$/.test(input)) { // Transaction Hash
-      router.push(`/tx/${input}`); // Navigate to transaction detail page
-    } else if (/^0x[a-fA-F0-9]{40}$/.test(input)) { // Wallet Address
-      router.push(`/address/${input}`); // Navigate to wallet detail page
-    } else {
-      alert("Invalid input");
-    }
+    //  if (/^\d+$/.test(input)) { // Block Number
+    //   router.push(`/block/${input}`); // Navigate to block detail page by number
+    // } else if (/^0x[a-fA-F0-9]{64}$/.test(input)) { // Transaction Hash
+    //   router.push(`/tx/${input}`); // Navigate to transaction detail page
+    // } else if (/^0x[a-fA-F0-9]{40}$/.test(input)) { // Wallet Address
+    //   router.push(`/address/${input}`); // Navigate to wallet detail page
+    // } else {
+    //   alert("Invalid input");
+    // }
+    router.push(`/search/${input}`);
   };
 
   const links = [
