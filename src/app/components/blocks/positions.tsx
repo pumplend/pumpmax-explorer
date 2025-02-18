@@ -2,7 +2,6 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { Kube } from './kube';
 import { PinContainer } from '../ui/3d-pin';
 
 import { CurrencyDollarIcon} from "@heroicons/react/20/solid";

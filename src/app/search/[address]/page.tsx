@@ -1,7 +1,5 @@
 
 'use client';
-
-import WalletDetail from '@/app/components/details/wallet/wallet-detail';
 import React, { useEffect, useState } from 'react';
 import Positons from "@/app/components/blocks/positions";
 import Actives from "@/app/components/blocks/actives";

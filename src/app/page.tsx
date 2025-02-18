@@ -1,10 +1,7 @@
 'use client'
-
-import Blocks from "./components/blocks/blocks";
 import Hero from "./components/ui/hero";
 import Positons from "./components/blocks/positions";
 import Actives from "./components/blocks/actives";
-import GoingLiqudtion from "./components/blocks/going_liqudtion";
 import Status from "./components/blocks/status";
 import React, { useEffect, useState } from 'react';
 import {mainPage} from "@/core/dataFetch" ; 
