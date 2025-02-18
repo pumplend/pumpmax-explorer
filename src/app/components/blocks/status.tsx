@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Kube } from './kube';
 import { PinContainer } from '../ui/3d-pin';
-import { CurrencyDollarIcon,ClockIcon} from "@heroicons/react/20/solid";
+import { CurrencyDollarIcon,LockClosedIcon,ClockIcon,MoonIcon} from "@heroicons/react/20/solid";
 import {mainPage} from "@/core/dataFetch" ; 
 
 const Status: React.FC = () => {
@@ -138,10 +138,10 @@ const Status: React.FC = () => {
                   
                           <h1 className="flex font-bold text-xl text-gray-500 dark:text-white mb-4 relative z-50 middl gap-2">
                             <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center mb-4 border-gray-500">
-                              <CurrencyDollarIcon className="h-4 w-4 text-gray-500" />
+                              <LockClosedIcon className="h-4 w-4 text-gray-500" />
                             </div> 
                             <span>
-                            {data.goingLiqudtion.total}
+                            {data.position.close}
                             </span>
                           </h1>
                   
@@ -168,7 +168,7 @@ const Status: React.FC = () => {
                   
                           <h1 className="flex font-bold text-xl text-gray-500 dark:text-white mb-4 relative z-50 middl gap-2">
                             <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center mb-4 border-gray-500">
-                              <CurrencyDollarIcon className="h-4 w-4 text-gray-500" />
+                              <ClockIcon className="h-4 w-4 text-gray-500" />
                             </div> 
                             <span>
                             {data.history.total}
@@ -206,7 +206,7 @@ const Status: React.FC = () => {
                   
                           <h1 className="flex font-bold text-xl text-gray-500 dark:text-white mb-4 relative z-50 middl gap-2">
                             <div className="h-6 w-6 rounded-full border-2 flex items-center justify-center mb-4 border-gray-500">
-                              <CurrencyDollarIcon className="h-4 w-4 text-gray-500" />
+                              <MoonIcon className="h-4 w-4 text-gray-500" />
                             </div> 
                             <span>
                             {data.stake.total} SOL

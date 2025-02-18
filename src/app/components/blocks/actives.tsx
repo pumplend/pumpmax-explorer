@@ -90,30 +90,30 @@ const Actives= ({search}: {search?: string}) => {
             }
             if (block.type == "repay")
             {
-              type = "REPAY"
+              type = "REPAY POSITION"
             }
             if (block.type == "borrowLoopPump")
             {
-              type = "LONG"
+              type = "MAKE LONG"
             }
             if (block.type == "borrowLoopRaydium")
             {
-              type = "LONG"
+              type = "MAKE LONG"
             }
             if (block.type == "liquidatePump")
             {
-              type = "CLOSE"
+              type = "CLOSE POSITION"
             }
             if (block.type == "liquidateRaydium")
             {
-              type = "CLOSE"
+              type = "CLOSE POSITION"
             }
             const timestamp = new Date(Number(block.blockTime)*1000).toLocaleString()
             return (
               <div key={block.hash.toString()} className={`${animationClass}`}>
                 <PinContainer
                   title={`View ${block.hash}`}
-                  href={`/actives/${block.hash}`}
+                  href={`/active/${block.hash}`}
                 >
                   <div className="tracking-tight text-slate-100/50 w-[18rem] h-[12rem]">
                       <div className={`w-full relative max-w-xs`}>

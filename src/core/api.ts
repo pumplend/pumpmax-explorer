@@ -108,7 +108,8 @@ async function api_pumpmax_get_user_positions(
   pageSize: number = 10,
   user?: string,
   token?: string,
-  hash?:string
+  hash?:string,
+  id?:string
 ) {
   try {
     let url = `${request_router.pumpmax.positions}?page=${page}&pageSize=${pageSize}`;
@@ -122,7 +123,10 @@ async function api_pumpmax_get_user_positions(
     {
       url += `&hash=${hash}`;
     }
-
+    if(id)
+    {
+      url += `&userBorrowData=${id}`;
+    }
     return await requester(url, request_get_unauth());
   } catch (e) {
     console.error(e);

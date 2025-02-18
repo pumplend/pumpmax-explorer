@@ -9,9 +9,9 @@ const mainPage = async ()=>
         stakingData
     }
 }
-const positions = async (user?:string,token?:string,hash?:string,page=1,pageSize=8)=>
+const positions = async (user?:string,token?:string,hash?:string,id?:string,page=1,pageSize=8)=>
 {
-    const ret = await api_pumpmax_get_user_positions(page,pageSize,user,token,hash)
+    const ret = await api_pumpmax_get_user_positions(page,pageSize,user,token,hash,id)
     if(ret?.code && ret?.data)
     {
         return ret.data

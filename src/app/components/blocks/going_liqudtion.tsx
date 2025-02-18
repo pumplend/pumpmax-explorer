@@ -145,7 +145,7 @@ const GoingLiqudtion: React.FC = () => {
 }
     ]
     console.log(blockData)
-    setBlocks(blockData);
+    // setBlocks(blockData);
   };
 
   // Set up the interval
