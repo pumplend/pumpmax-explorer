@@ -6,8 +6,8 @@ import Navbar from "./components/ui/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "BlockKube Explorer",
-  description: "BlockKube Explorer is a lightweight, fast, and modern explorer for the Ethereum blockchain.",
+  title: "PUMPMAX Explorer",
+  description: "PUMPMAX Explorer is a explorer for pumpmax protocol.",
 };
 
 export default function RootLayout({
