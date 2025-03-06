@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start:next": "next start",
+    "start:next": "next start -p 3001",
     "lint": "next lint",
     "listen": "ts-node -P tsconfig.scripts.json src/scripts/listener.ts",
     "start:dev": "concurrently \"npm run dev\" \"npm run listen\"",
